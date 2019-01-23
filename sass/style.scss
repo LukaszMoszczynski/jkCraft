@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+///global
+
+$main-color: #666666;
+$second-color: #E6E6E6;
+$third-color: #FFF;
+
 
 body {
-	//background-color: #E6E6E6;
 	color: #000;
 	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	padding: 0;
+}
+
+ .container .navbar-nav.navbar-right:last-child {
+	margin-right: -15px;
 }
 
 @keyframes image-animation {
@@ -30,48 +39,73 @@ body {
 
 @keyframes slide {
 	0% {
-		opacity:0;
+		opacity: 0;
 		margin-left: -10rem;
-		transform: scale(0.5);
-		font-size: 10px;
+		font-size: 1rem;
 	}
 	75% {
-		opacity:0.5;
+		opacity: 0.5;
 	}
 	90% {
-		font-size: 43px;
+		font-size: 2.5rem;
 	}
 	100% {
-		opacity:1;
+		opacity: 1;
 		margin-left: 0;
-		transform: scale(1);
-		font-size: 40px;
+		font-size: 2rem;
 	}
 }
 
 
 @keyframes pop {
 	0% {
-		opacity:0;
+		opacity: 0;
 		transform: scale(0.5);
 	}
 	75% {
-		opacity:0.6;
+		opacity: 0.6;
 	}
 	90% {
 		transform: scale(1.1);
 	}
 	100% {
-		opacity:1;
+		opacity: 1;
 		transform: scale(1);
 	}
 }
 
+.booksy {
+	display: flex;
+	opacity: 0;		
+	animation: pop 1s ease-in forwards;
+	animation-delay: 2s;
+	p { 
+		font-size: 1.3rem;
+	}
+	a {
+		margin-left: 50px;
+	}
+	img {
+		height: 30px;
+		transition: 0.2s ease-in-out;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+h2 {
+	color: $main-color;
+	font-weight: 700;
+	margin-bottom: 50px;
+}
+
+
+//header
 .hero {
 	height: 100vh;
 	position: relative;
-	overflow: hidden;
-	display: flex;
+	overflow: hidden;	
 	.slideshow {
 		height: 100%;
 		position: absolute;
@@ -98,73 +132,132 @@ body {
 			animation-delay: 6s;
 		}
 		.third-slide {
-			background-image: url(../images/head3.png);
+			background-image: url(../images/head3.jpg);
 			animation-delay: 12s;
+		}
+	}
+	.logo {
+		position: absolute;
+		z-index: 1;
+		top: 50px;
+		left: 5%;
+		img {
+			height: 125px;
+			width: 75px;
+		}
+	}
+	.navbar {
+		margin-top: 50px;
+		z-index: 3;
+		padding: 0;
+		position: fixed;
+		width: 100%;
+		opacity: 0.8;
+		@media only screen and (max-width: 992px) {
+			margin-top: 0;
+			background-color: $second-color;
+			display: flex;
+			justify-content: flex-end;
+		}
+		button {
+			img {
+				height: 50px;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+		.navbar-collapse {
+			justify-content: flex-end;
+			.navbar-nav {
+				border: 1px solid $second-color;
+				border-radius: 20px 0 0 20px;
+				padding: 0 50px 0 20px;
+				background-color: $second-color;
+				margin-right: -520px;
+				transition: 0.5s ease-in-out;
+				&:hover {
+					margin-right: 0;
+				}
+				li {
+					a {
+						color: $main-color;
+						&:hover {
+							font-weight: 700;
+						}
+					}
+					p {
+						font-weight: 700;
+						margin: 0;
+						padding: .5rem 1rem;
+						color: $main-color;
+						@media only screen and (max-width: 992px) {
+							display: none;
+						}
+					}
+				}
+			}
 		}
 	}
 	.container {
 		z-index: 1;
-		position: relative;
-		@media screen and (min-width: 1920px) {
-			width: 1600px;
-		}
+		position: relative;	
+		height: 100%;
+		padding-bottom: 10%;
 		.row {
 			height: 100%;
-			.hero-header {			
+			.hero-header {	
+				width: 100%;		
 				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
 				height: 100%;
-				.logo {
-					margin-top: 4%;
-					img {
-						height: 150px;
-						width: 100px;
-					}
+				display: flex;
+				align-items: flex-end;
+				justify-content: flex-start;		
+				@media only screen and (max-width: 992px) {
+					padding-top: 20%;
+					align-items: center;
+					justify-content: center;
 				}
 				.hero-header-text {
-					margin-top: 30%;
-					position: relative;				
-					div {	
-						position: relative;						
+					position: relative;			
+					.header-first {
+						font-size: 2rem;
+						p {
+							.hiden {
+								opacity: 0;
+								animation: pop 2s ease-in forwards;
+								animation-delay: 3s;
+							}
+							.bold {
+								font-weight: 700;
+							}
+						}					
+					}	
+					.header-second {	
+						position: relative;	
+						display: none;					
 						.line-1 {
 							opacity: 0;
 							margin-left: -8rem;		
 							animation: slide 1.5s ease-in forwards;
-							animation-delay: 1s;
 						}
 						.line-2{	
 							opacity: 0;
 							margin-left: -8rem;		
 							animation: slide 1.5s ease-in forwards;						
-							animation-delay: 2s;
+							animation-delay: 1s;
 						}
 						.line-3{	
 							opacity: 0;
 							margin-left: -8rem;		
 							animation: slide 1.5s ease-in forwards;						
-							animation-delay: 3s;
+							animation-delay: 2s;
 						}
 						.line-4{	
 							opacity: 0;
 							margin-left: -8rem;		
 							animation: slide 1.5s ease-in forwards;						
-							animation-delay: 4s;
-						}
-					}
-					.header-booksy {
-						display: flex;
-						opacity: 0;		
-						animation: pop 1s ease-in forwards;
-						animation-delay: 5s;
-						h3 { 
-							margin-top: 10px;
-						}
-						a {
-							margin-left: 50px;
-						}
-						img {
-							height: 50px;
+							animation-delay: 3s;
 						}
 					}
 				}
@@ -173,13 +266,214 @@ body {
 	}
 }
 
+///gallery
+.gallery {
+	margin: 100px 0;
+	img {
+		transition: 0.5s;
+		filter: grayscale(100%);
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
+}
+
+///services
+.services {
+	background-color: $second-color;
+	padding: 100px 0;
+	.container {
+		.row {
+			margin: 0;
+			.services-first {
+				align-items: flex-start;
+				div:nth-of-type(3) {
+					margin-bottom: 50px;
+				}
+			}
+			.services-second {
+				align-items: flex-end;
+			}
+			.col-lg-6 {
+				padding: 0;		
+				margin-bottom: 50px;
+				display: flex;				
+				flex-direction: column;
+				@media only screen and (max-width: 992px) {
+					display: flex;
+					align-items: center;
+					justify-content: center;;
+				}
+				div {
+					display: flex;
+					justify-content: space-around;
+					.name, .price {
+						background-color: $third-color;
+						border-radius: 10px;
+						margin-right: 50px;
+						@media only screen and (max-width: 576px) {
+							margin-right: 20px;
+						}
+					}
+					.name {
+						width: 350px;
+						padding: 5px 30px;
+						@media only screen and (max-width: 1200px) {
+							width: 300px;
+							padding: 5px 10px;
+						}
+						@media only screen and (max-width: 576px) {
+							width: 180px;
+						}
+					}
+					.price {
+						padding: 5px 10px;
+						width: 90px;
+						text-align: center;
+						margin-right: 0;
+					}
+				}
+			}
+			.booksy {
+				width: 100%;
+				display: flex;
+				justify-content: flex-end;
+				@media only screen and (max-width: 576px) {
+					justify-content: center;
+				}
+			}
+		}		
+	}	
+}
+
+.about {
+	margin: 100px 0;
+	p {
+		padding-bottom: 50px;
+	}
+}
 
 .contact {
-	height: 500px;
+	padding: 100px 0;
+	background-color: $second-color;
+	form {		
+		padding: 0 10%;
+		h5 {
+			margin-bottom: 30px;
+		}
+		input {
+			color: $main-color;
+			width: 350px;
+			height: 40px;
+			margin: 10px 0;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			font-size: 12px;
+			font-weight: 700;
+			@media only screen and (max-width: 400px) {
+				width: 200px;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		textarea {
+			margin: 10px 0;
+			width: 350px;
+			min-height: 250px;
+			display: block;
+  			box-sizing: padding-box;
+ 			overflow: hidden;
+ 			border: none;
+ 			resize: none;
+ 			border-radius: 5px;
+ 			padding: 10px 20px;
+			font-size: 12px;
+			font-weight: 700;
+ 			@media only screen and (max-width: 400px) {
+				width: 200px;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		button {
+			width: 150px;
+			padding: 5px;
+			cursor: pointer;
+			color: $main-color;	
+			border: 2px solid $third-color;
+			transition: 0.7s;
+			background: linear-gradient(60deg, $main-color 50%, transparent 50%);
+			background-color: $third-color;
+			background-position: 100% 0;
+			background-size: 500%;
+			margin: 5px 0 20px;
+			font-weight: 700;
+			font-size: 14px;
+			border-radius: 5px;
+			&:focus {
+				outline: 0;
+			}
+			&:hover {
+				color: $second-color;
+				border: 2px solid $second-color;
+				background-position: 0 100%;
+			}
+		}
+	}
+	.formData {
+		padding: 0 10%;
+		img {
+			height: 150px;
+			width: 90px;
+			margin-bottom: 30px;
+		}
+		p {
+			margin-bottom: 0;
+		}
+		.bold {
+			font-weight: 700;
+			margin-bottom: 10px;
+		}
+		.icons {
+			margin-top: 40px;
+			a {
+				padding-right: 10px;
+				i {
+					font-size: 30px;
+					color: $main-color;
+					transition: 0.2s ease-in-out;
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+				img {		
+					height: 30px;
+					width: 30px;
+					margin-top: 15px;
+					transition: 0.2s ease-in-out;
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+				.image-booksy {
+					width: 120px;
+				}
+			}
+		}
+	}
 }
-.map-section{
+
+.map-section {
+	transition: 0.5s;
 	width: 100%;
-	.map {
-		height: 700px;
+	filter: grayscale(100%);
+	&:hover {
+		filter: grayscale(0);
+	}
+	#map {
+		height: 500px;
 	}
 }
