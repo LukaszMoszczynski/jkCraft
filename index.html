@@ -4,6 +4,27 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>JKCraft Joanna Krzączkowska</title>
+
+		<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -11,8 +32,9 @@
 	</head>
 	<body>
 
-
-
+		<div class="loader">
+			<div class="inner"></div>
+		</div>
 
 		<section class="hero">
 
@@ -63,14 +85,17 @@
 				<div class="row">
 					<div class="hero-header">			
 						<div class="hero-header-text">
-							<div class="header-first">
-								<p><span class="hiden">life isn't </span><span class="bold">perfect</span> <br>
-									<span class="hiden">but your </span><span class="bold">hair </span><span class="hiden">can be!</span>
-								</p>
-							</div>
-							<p class="header-second">
-								<span class="line-1">Idealna, skromna,<br><span class="line-2">niesamowita...</span> <br> <span class="line-3">Jakiej fryzury </span><br> <span class="line-4">oczekujesz?</span>
-							</p>
+							<ul>
+								<li class="header-first header-text-container active">
+									<p><br><br>
+										<span class="hiden">life isn't </span><span class="bold">perfect</span> <br>
+										<span class="hiden">but your </span><span class="bold">hair </span><span class="hiden">can be!</span>
+									</p>
+								</li>
+								<li class="header-second header-text-container">
+									<p>Idealna, skromna,<br>niesamowita...<br>Jakiej fryzury<br>oczekujesz?</p>
+								</li>
+							</ul>
 							<div class="booksy">
 								<p>Zarezerwuj wizytę</p> 
 								<a href="https://booksy.com/pl-pl/9441_joanna-krzaczkowska_fryzjerzy_18078_szczecin" target="_blank"><img src="images/booksy2.png" alt="booksy"></a>
@@ -137,7 +162,7 @@
 							<p class="price">250+ pln</p>
 						</div>
 					</div>				
-					<div class="booksy">
+					<div class="booksy-services">
 						<p>Zarezerwuj wizytę</p> 
 						<a href="https://booksy.com/pl-pl/9441_joanna-krzaczkowska_fryzjerzy_18078_szczecin" target="_blank"><img src="images/booksy2.png" alt="booksy"></a>
 					</div>
@@ -148,8 +173,8 @@
 		<section class="about" id="about">
 			<div class="container">
 				<h2>o mnie</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis lectus et ex consectetur hendrerit. Cras tincidunt pretium sapien, non mattis ex egestas eu. Cras consequat nunc sit amet justo facilisis varius. Pellentesque condimentum, metus at mollis imperdiet, enim metus efficitur erat, in tincidunt nunc lectus quis nisl. Quisque ullamcorper sagittis bibendum. Proin tempor nibh at diam sollicitudin lacinia. Sed ut felis sed ante ultrices feugiat eget ut erat.</p>
-				<p> Curabitur vel leo ut velit malesuada ornare nec quis nisi. Suspendisse non tellus tristique, lobortis leo a, bibendum erat. Aliquam auctor ligula sit amet arcu pretium, sit amet accumsan ligula viverra.</p>
+				<p class="about-first">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis lectus et ex consectetur hendrerit. Cras tincidunt pretium sapien, non mattis ex egestas eu. Cras consequat nunc sit amet justo facilisis varius. Pellentesque condimentum, metus at mollis imperdiet, enim metus efficitur erat, in tincidunt nunc lectus quis nisl. Quisque ullamcorper sagittis bibendum. Proin tempor nibh at diam sollicitudin lacinia. Sed ut felis sed ante ultrices feugiat eget ut erat.</p>
+				<p class="about-second"> Curabitur vel leo ut velit malesuada ornare nec quis nisi. Suspendisse non tellus tristique, lobortis leo a, bibendum erat. Aliquam auctor ligula sit amet arcu pretium, sit amet accumsan ligula viverra.</p>
 			</div>
 		</section>
 
@@ -173,7 +198,7 @@
 						<p>telefon</p>
 						<p class="bold">+48 511 533 755</p>
 						<p>adres</p>
-						<p class="bold">Edmunda Bałuki 20<br>70-407, Szczecin</p>
+						<p class="bold">Salon 3-Kolory <br>Edmunda Bałuki 20<br>70-407, Szczecin</p>
 						<div class="icons">
 							<a href="https://www.instagram.com/craftjkhair/"><img src="images/insta.png" alt="instagram"></a>
 							<a href="https://www.facebook.com/craftjkhair"><img src="images/fb.png" alt="facebook"></a>

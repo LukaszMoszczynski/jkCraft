@@ -1,12 +1,29 @@
+$(window).on('load', function() {
+
+	$('.loader .inner').fadeOut(500, function() {
+		$('.loader').fadeOut(500);
+	});
+
+});
+
+
 $(document).ready(function() {
 
-	setTimeout(function() {
-		$(".header-first").fadeOut();
-	}, 5000);
+	function changeSign() {
+	
+		$(".header-first").removeClass("active");				
+		$(".header-second").addClass("active");
+	
+		setTimeout(function() {
+			$(".header-second").removeClass("active");
+			$(".header-first").addClass("active");
+		}, 10000);
 
-	setTimeout(function() {
-		$(".header-second").fadeIn();
-	}, 5400);
+		setTimeout(changeSign, 20000);
+
+	}
+
+	setTimeout(changeSign, 10000);
 
 	$('.owl-carousel').owlCarousel({
 		loop:true,
@@ -26,9 +43,6 @@ $(document).ready(function() {
 				items:3
 			},
 			1024:{
-				items:4
-			},
-			1600: {
 				items:4
 			}
 		}
@@ -51,11 +65,27 @@ $(document).ready(function() {
 
     $('#navigation a').click(function(e) {
 		
-
 		const targetElement = $(this).attr('href');
 		const targetPosition = $(targetElement).offset().top;
 		$('html, body').animate({scrollTop: targetPosition -50}, 'slow');
+		
 	});
+
+    const skillsTopOffset = $('.services').offset().top;
+    const aboutTopOffset = $('.about').offset().top;
+
+	$(window).scroll(function() {
+		if(window.pageYOffset > skillsTopOffset - $(window).height() + 400) {
+			$('.booksy-services').addClass('booksy');
+		}
+	});	
+
+	$(window).scroll(function() {
+		if(window.pageYOffset > aboutTopOffset - $(window).height() + 200) {
+			$('.about p').addClass('about-fade');
+		}
+	});
+
 });
 
 

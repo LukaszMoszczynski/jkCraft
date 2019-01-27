@@ -11,6 +11,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
  .container .navbar-nav.navbar-right:last-child {
@@ -56,7 +57,6 @@ body {
 	}
 }
 
-
 @keyframes pop {
 	0% {
 		opacity: 0;
@@ -74,11 +74,42 @@ body {
 	}
 }
 
+.active {
+	display: block !important;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	15% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.6;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .booksy {
 	display: flex;
 	opacity: 0;		
 	animation: pop 1s ease-in forwards;
-	animation-delay: 2s;
+	animation-delay: 1s;
 	p { 
 		font-size: 1.3rem;
 	}
@@ -100,6 +131,22 @@ h2 {
 	margin-bottom: 50px;
 }
 
+//loader
+
+.loader {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: $second-color;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	.inner {
+		width: 100%;
+		height: 100%;
+		background: url(../images/loader.gif) center center no-repeat;
+	}
+}
 
 //header
 .hero {
@@ -170,16 +217,32 @@ h2 {
 		.navbar-collapse {
 			justify-content: flex-end;
 			.navbar-nav {
-				border: 1px solid $second-color;
+				border: 1px solid $main-color;
+				border-right: none;
 				border-radius: 20px 0 0 20px;
 				padding: 0 50px 0 20px;
 				background-color: $second-color;
 				margin-right: -520px;
 				transition: 0.5s ease-in-out;
+				@media only screen and (max-width: 992px) {
+					border: none;
+					border-bottom: 1px solid $main-color;
+					display: flex;
+					justify-content: space-between;
+					align-items: flex-start;
+					flex-direction: row;
+					margin-right: 0px;
+					flex-wrap: wrap;
+					border-radius: 0;
+				}
 				&:hover {
 					margin-right: 0;
 				}
-				li {
+				li {	
+					@media only screen and (max-width: 992px) {
+						padding-right: 0.5rem;
+						padding-left: 0.5rem;
+					}									
 					a {
 						color: $main-color;
 						&:hover {
@@ -190,10 +253,12 @@ h2 {
 						font-weight: 700;
 						margin: 0;
 						padding: .5rem 1rem;
-						color: $main-color;
-						@media only screen and (max-width: 992px) {
-							display: none;
-						}
+						color: $main-color;						
+					}
+				}
+				li:nth-of-type(1) {
+					@media only screen and (max-width: 992px) {
+						display: none;
 					}
 				}
 			}
@@ -219,52 +284,40 @@ h2 {
 					justify-content: center;
 				}
 				.hero-header-text {
-					position: relative;			
-					.header-first {
-						font-size: 2rem;
-						p {
-							.hiden {
-								opacity: 0;
-								animation: pop 2s ease-in forwards;
-								animation-delay: 3s;
-							}
-							.bold {
-								font-weight: 700;
-							}
-						}					
-					}	
-					.header-second {	
-						position: relative;	
-						display: none;					
-						.line-1 {
-							opacity: 0;
-							margin-left: -8rem;		
-							animation: slide 1.5s ease-in forwards;
+					position: relative;	
+					color: $main-color;		
+					ul {
+						padding: 0;
+						li {
+							font-size: 2rem;
+							list-style-type: none;					
 						}
-						.line-2{	
+						.header-first {
+							display: none;
+							animation: fade 10s ease-in forwards;
+							p {
+								.hiden {
+									opacity: 0;
+									animation: pop 2s ease-in forwards;
+									animation-delay: 3s;
+								}
+								.bold {
+									font-weight: 700;
+								}
+							}					
+						}	
+						.header-second {	
+							display: none;	
 							opacity: 0;
-							margin-left: -8rem;		
-							animation: slide 1.5s ease-in forwards;						
-							animation-delay: 1s;
+							animation: fade 10s ease-in forwards;	
 						}
-						.line-3{	
-							opacity: 0;
-							margin-left: -8rem;		
-							animation: slide 1.5s ease-in forwards;						
-							animation-delay: 2s;
-						}
-						.line-4{	
-							opacity: 0;
-							margin-left: -8rem;		
-							animation: slide 1.5s ease-in forwards;						
-							animation-delay: 3s;
-						}
-					}
+					}			
 				}
 			}
 		}
 	}
 }
+
 
 ///gallery
 .gallery {
@@ -311,6 +364,7 @@ h2 {
 						background-color: $third-color;
 						border-radius: 10px;
 						margin-right: 50px;
+						color: $main-color;
 						@media only screen and (max-width: 576px) {
 							margin-right: 20px;
 						}
@@ -346,10 +400,20 @@ h2 {
 	}	
 }
 
+.about-fade {
+	animation: fade-in 4s forwards;
+}
 .about {
 	margin: 100px 0;
 	p {
-		padding-bottom: 50px;
+		padding-bottom: 50px;		
+		opacity: 0;
+	}
+	.about-first {
+		animation-delay: 1s;
+	}
+	.about-second {
+		animation-delay: 2s;
 	}
 }
 
@@ -431,6 +495,7 @@ h2 {
 			margin-bottom: 30px;
 		}
 		p {
+			color: $main-color;
 			margin-bottom: 0;
 		}
 		.bold {
